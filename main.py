@@ -387,6 +387,12 @@ def few_shot_cot():
         )
     return correct
 
+# 8examplars를 prompt주는 경우 (arithmetic reasoning)
+def cot_8shots():
+    pass
+
+def cot_sc_8shots():
+    pass
 
 if __name__ == '__main__':
     print_exp(args)

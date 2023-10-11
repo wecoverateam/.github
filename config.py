@@ -5,7 +5,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "--max_length_cot", type=int, default=256,
+        "--max_length_cot", type=int, default=128, #128: CoT-SC
         help="maximum length of output tokens by model for reasoning extraction"
     )
     parser.add_argument(
@@ -20,7 +20,7 @@ def parse_arguments():
         "--api_time_interval", type=float, default=2.0, help=""
     )
     parser.add_argument(
-        "--temperature", type=float, default=0, help=""
+        "--temperature", type=float, default=0, help="" #CoT-SC: 0.7
     )
     parser.add_argument(
         '--dataset', default='gsm8k',
@@ -32,7 +32,7 @@ def parse_arguments():
         "--prompt_id", default='324', help='string'
     )
     parser.add_argument(
-        "--engine", default='text-davinci-003', help="text-davinci-002,text-davinci-003,code-davinci-002",
+        "--engine", default='code-davinci-002', help="text-davinci-002,text-davinci-003,code-davinci-002",
         choices=["text-davinci-002", "text-davinci-003", "code-davinci-002"]
     )
     parser.add_argument(
@@ -58,11 +58,11 @@ def parse_arguments():
         "--SC", default=False, type=bool, help="self consistency"
     )
     parser.add_argument(
-        '--answer_extracting_prompt', default='Therefore,the answer is', type=str
+        '--answer_extracting_prompt', default='The answer is', type=str
     )
     parsed_args = parser.parse_args()
     parsed_args.direct_answer_trigger_for_zeroshot = "Let's think step by step."
-    parsed_args.direct_answer_trigger_for_direct = "Therefore,the answer is"
+    parsed_args.direct_answer_trigger_for_direct = "The answer is" #PS:"Therefore,the answer is"
     return parsed_args
 
 

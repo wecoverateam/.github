@@ -35,7 +35,7 @@ def decoder_for_gpt3(args, input, max_length, apikey):
         return tem_rational
     elif args.engine == 'code-davinci-002':
         raise NotImplementedError('implement the code when running gpt3 engine: {}'.format(args.engine))
-    else:
+    else: 
         raise NotImplementedError('implement the code when running gpt3 engine: {}'.format(args.engine))
 
 
